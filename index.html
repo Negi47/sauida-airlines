@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Onecard RHS Tool</title>
+        <link rel="stylesheet" href="./onecard.css"> 
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://toolassets.haptikapi.com/athena2/prod/athena-sdk.v2.1.js"></script>
+        <script src="./create_ticket_json.js"></script>
+        
+        <button class="tablink" onclick="openPage('create_ticket_tab', this)" id="openCreateTicketTab">Save as new ticket</button>
+        <button class="tablink" onclick="openPage('append_ticket_tab', this)" id="openAppendTicketTab">Append to existing ticket</button>
+        <div class="user_info_link border_box" style="margin: 0px;padding-top: 70px;" onkeyup="setUserInfoLink()">
+            <label for="user_info_link">User Info Link</label>
+            <input type="text" aria-required="true" maxlength="150" size="50">
+        </div>
+        <div id="create_ticket_tab" class="tabcontent">
+            <div id="create_ticket_form">
+            </div>
+            <div class="fix_button_bottom" id="create_ticket">
+                <button onclick="createTicket()">Create Ticket</button>
+            </div>
+            <div class="display_create_append_api_response" id="display_create_api_response"></div>
+        </div>
+        
+        <div id="append_ticket_tab" class="tabcontent">
+            <div id="display_ticket_block">
+            </div>
+            <div class="fix_button_bottom" id="append_ticket_action" >
+                <button disabled="true" onclick="unSelectTicket()">Cancel</button>
+                <button disabled="true" onclick="appendTicket()">Append Ticket And Resolve</button>
+            </div>
+            <div class="display_create_append_api_response" id="display_append_api_response"></div>
+        </div>
+        </body>
+        <script src="./onecard.js"></script>
+
+    </body>
+</html>
