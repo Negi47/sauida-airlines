@@ -4,10 +4,9 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-const app = express().use(bodyParser.json()); // creates http server
+const app = express().use(bodyParser.json());
 
-const token = 'verifyToken1213'; // type your verification token here
-
+const token = 'verifyToken1213';
 
 
 // app.listen() part should always be located in the last line of your code
@@ -17,7 +16,7 @@ app.listen(3000, () => console.log('[ChatBot] Webhook is listening'));
 app.get('/api/notify/wa/webhook', (req, res) => {
     // check if verification token is correct
     if (req.query.token !== token) {
-        return res.sendStatus(401); // if not, return unauthorized error
+        return res.sendStatus(401);
     }
     // return challenge
     return res.end(req.query.challenge);
